@@ -27,9 +27,10 @@ export const validateRequest = (validationSchemas: ValidationSchemas) => {
             }
 
             if (validationSchemas.querySchema) {
-                request.query = validationSchemas.querySchema.parse(
+                const parsedQuery = validationSchemas.querySchema.parse(
                     request.query
                 );
+                Object.assign(request.query as any, parsedQuery);
             }
 
             return nextFunction();
