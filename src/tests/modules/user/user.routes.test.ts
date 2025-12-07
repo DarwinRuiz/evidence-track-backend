@@ -65,8 +65,6 @@ describe('User routes', () => {
 
     describe('POST /users', () => {
         it('should create a user successfully', async () => {
-            const createdAt = new Date('2025-01-01T00:00:00.000Z');
-
             mockedPasswordSecurity.hashPassword.mockResolvedValue(
                 'hashed-password'
             );
@@ -130,8 +128,6 @@ describe('User routes', () => {
 
     describe('PUT /users/:userId', () => {
         it('should update a user successfully including password', async () => {
-            const createdAt = new Date('2025-01-01T00:00:00.000Z');
-
             mockedUserRepository.getUserById.mockResolvedValue({
                 userId: 5,
                 fullName: 'Existing User',
@@ -201,8 +197,6 @@ describe('User routes', () => {
 
     describe('DELETE /users/:userId', () => {
         it('should delete an existing user', async () => {
-            const createdAt = new Date('2025-01-01T00:00:00.000Z');
-
             mockedUserRepository.getUserById.mockResolvedValue({
                 userId: 7,
                 fullName: 'User To Delete',
@@ -238,8 +232,6 @@ describe('User routes', () => {
 
     describe('GET /users/:userId', () => {
         it('should return a user by id', async () => {
-            const createdAt = new Date('2025-01-01T00:00:00.000Z');
-
             mockedUserRepository.getUserById.mockResolvedValue({
                 userId: 3,
                 fullName: 'Some User',
