@@ -5,6 +5,7 @@ export interface JwtPayload {
     userId: number;
     email: string;
     roleName: string;
+    fullName: string;
 }
 
 export const jwtSecurity = {

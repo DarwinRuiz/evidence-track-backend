@@ -32,9 +32,11 @@ export const errorMiddleware = (
 
     logger.error('Unexpected error encountered', { error });
 
+    const internalError = error as Error;
+
     return response.status(500).json({
         success: false,
-        message: 'Unexpected error',
+        message: internalError.message || 'An unexpected error occurred.',
         errorCode: 'UNEXPECTED_ERROR',
         data: null,
     });

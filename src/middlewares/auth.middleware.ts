@@ -45,7 +45,12 @@ export const authenticationMiddleware = (
         const temporalRequest = request as Request & {
             user?: typeof tokenPayload;
         };
-        temporalRequest.user = tokenPayload;
+        temporalRequest.user = {
+            userId: tokenPayload.userId,
+            email: tokenPayload.email,
+            roleName: tokenPayload.roleName,
+            fullName: tokenPayload.fullName,
+        };
         request = temporalRequest;
         return nextFunction();
     } catch {
