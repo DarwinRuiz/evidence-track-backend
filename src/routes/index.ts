@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { sendSuccess } from '../core/http/responseHelpers';
 import authRouter from '../modules/auth/auth.routes';
+import caseFileRouter from '../modules/case-file/caseFile.routes';
 import RoleRouter from '../modules/role/role.routes';
 import userRouter from '../modules/user/user.routes';
 
@@ -18,5 +19,6 @@ router.get('/', (request, response) => {
 router.use('/auth', authRouter);
 router.use('/users', userRouter);
 router.use('/roles', RoleRouter);
+router.use('/case-files', caseFileRouter);
 
 export default router;
