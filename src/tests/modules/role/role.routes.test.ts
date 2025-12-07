@@ -103,9 +103,7 @@ describe('Roles routes', () => {
     });
 
     describe('PUT /roles/:roleId', () => {
-        it('should update a role successfully including password', async () => {
-            const createdAt = new Date('2025-01-01T00:00:00.000Z');
-
+        it('should update a role successfully', async () => {
             mockedRoleRepository.getRoleById.mockResolvedValue({
                 roleId: 5,
                 roleName: 'Existing Role',
