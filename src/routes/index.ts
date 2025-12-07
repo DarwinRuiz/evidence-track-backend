@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import { sendSuccess } from '../core/http/responseHelpers';
+import authRouter from '../modules/auth/auth.routes';
 
 const router: Router = Router();
 
@@ -12,4 +13,5 @@ router.get('/', (request, response) => {
     );
 });
 
+router.use('/auth', authRouter);
 export default router;
