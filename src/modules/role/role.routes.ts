@@ -20,12 +20,15 @@ import {
 
 const RoleRouter: Router = Router();
 
-const coordinatorOnly = createRoleAuthorizationMiddleware(['COORDINATOR']);
+const coordinatorOrAdministrator = createRoleAuthorizationMiddleware([
+    'COORDINATOR',
+    'ADMINISTRATOR',
+]);
 
 RoleRouter.post(
     '/',
     authenticationMiddleware,
-    coordinatorOnly,
+    coordinatorOrAdministrator,
     validateRequest(createRoleValidation),
     createRole
 );
@@ -33,7 +36,7 @@ RoleRouter.post(
 RoleRouter.put(
     '/:roleId',
     authenticationMiddleware,
-    coordinatorOnly,
+    coordinatorOrAdministrator,
     validateRequest(updateRoleValidation),
     updateRole
 );
@@ -41,7 +44,7 @@ RoleRouter.put(
 RoleRouter.delete(
     '/:roleId',
     authenticationMiddleware,
-    coordinatorOnly,
+    coordinatorOrAdministrator,
     validateRequest(deleteRoleValidation),
     deleteRole
 );
@@ -49,7 +52,7 @@ RoleRouter.delete(
 RoleRouter.get(
     '/:roleId',
     authenticationMiddleware,
-    coordinatorOnly,
+    coordinatorOrAdministrator,
     validateRequest(getRoleByIdValidation),
     getRoleById
 );
@@ -57,7 +60,7 @@ RoleRouter.get(
 RoleRouter.get(
     '/',
     authenticationMiddleware,
-    coordinatorOnly,
+    coordinatorOrAdministrator,
     validateRequest(listRolesValidation),
     listRoles
 );
@@ -65,7 +68,7 @@ RoleRouter.get(
 RoleRouter.get(
     '/count/total',
     authenticationMiddleware,
-    coordinatorOnly,
+    coordinatorOrAdministrator,
     getTotalRoleCount
 );
 

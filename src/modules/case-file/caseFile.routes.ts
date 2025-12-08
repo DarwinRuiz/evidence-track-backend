@@ -38,7 +38,7 @@ caseFileRouter.post(
 caseFileRouter.put(
     '/:caseFileId',
     authenticationMiddleware,
-    coordinatorOnly,
+    technicianOrCoordinator,
     validateRequest(updateCaseFileValidation),
     updateCaseFile
 );
@@ -70,7 +70,7 @@ caseFileRouter.get(
 caseFileRouter.get(
     '/count/total',
     authenticationMiddleware,
-    coordinatorOnly,
+    technicianOrCoordinator,
     getTotalCaseFileCount
 );
 

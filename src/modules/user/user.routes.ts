@@ -20,12 +20,15 @@ import {
 
 const userRouter: Router = Router();
 
-const coordinatorOnly = createRoleAuthorizationMiddleware(['COORDINATOR']);
+const coordinatorOrAdministrator = createRoleAuthorizationMiddleware([
+    'COORDINATOR',
+    'ADMINISTRATOR',
+]);
 
 userRouter.post(
     '/',
     authenticationMiddleware,
-    coordinatorOnly,
+    coordinatorOrAdministrator,
     validateRequest(createUserValidation),
     createUser
 );
@@ -33,7 +36,7 @@ userRouter.post(
 userRouter.put(
     '/:userId',
     authenticationMiddleware,
-    coordinatorOnly,
+    coordinatorOrAdministrator,
     validateRequest(updateUserValidation),
     updateUser
 );
@@ -41,7 +44,7 @@ userRouter.put(
 userRouter.delete(
     '/:userId',
     authenticationMiddleware,
-    coordinatorOnly,
+    coordinatorOrAdministrator,
     validateRequest(deleteUserValidation),
     deleteUser
 );
@@ -49,7 +52,7 @@ userRouter.delete(
 userRouter.get(
     '/:userId',
     authenticationMiddleware,
-    coordinatorOnly,
+    coordinatorOrAdministrator,
     validateRequest(getUserByIdValidation),
     getUserById
 );
@@ -57,7 +60,7 @@ userRouter.get(
 userRouter.get(
     '/',
     authenticationMiddleware,
-    coordinatorOnly,
+    coordinatorOrAdministrator,
     validateRequest(listUsersValidation),
     listUsers
 );
@@ -65,7 +68,7 @@ userRouter.get(
 userRouter.get(
     '/count/total',
     authenticationMiddleware,
-    coordinatorOnly,
+    coordinatorOrAdministrator,
     getTotalUserCount
 );
 
