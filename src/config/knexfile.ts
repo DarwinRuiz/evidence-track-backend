@@ -11,7 +11,7 @@ const knexConfiguration: Knex.Config = {
         database: appEnvironment.database.name,
         options: {
             enableArithAbort: true,
-            encrypt: appEnvironment.nodeEnvironment !== 'development',
+            encrypt: false,
         },
     },
     pool: {
