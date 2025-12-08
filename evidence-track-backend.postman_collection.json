@@ -1,0 +1,1025 @@
+{
+	"info": {
+		"_postman_id": "24f662c9-bee1-4c42-9d9d-934d0c1a3019",
+		"name": "evidence-track-backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16434566"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin@mp.com\",\r\n    \"password\": \"4dMinistr@d0r*\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/auth/login",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAuthenticatedUserProfile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImVtYWlsIjoiYWRtaW5AbXAuY29tIiwicm9sZU5hbWUiOiJDT09SRElOQVRPUiIsImZ1bGxOYW1lIjoiQWRtaW5pc3RyYWRvciIsImlhdCI6MTc2NTA5MTc1MSwiZXhwIjoxNzY1MDk1MzUxfQ.Djv44c4TVLV03o13_FZmXJoWLoFl2Uvg66V-RtHNBe8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/auth/profile",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"auth",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "createUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImVtYWlsIjoiYWRtaW5AbXAuY29tIiwicm9sZU5hbWUiOiJDT09SRElOQVRPUiIsImZ1bGxOYW1lIjoiQWRtaW5pc3RyYWRvciIsImlhdCI6MTc2NTA5MTc1MSwiZXhwIjoxNzY1MDk1MzUxfQ.Djv44c4TVLV03o13_FZmXJoWLoFl2Uvg66V-RtHNBe8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fullName\": \"Julian Gálvez\",\r\n    \"email\": \"jgalvez@mp.com\",\r\n    \"password\": \"jgalvez#2025\",\r\n    \"roleId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/users/",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImVtYWlsIjoiYWRtaW5AbXAuY29tIiwicm9sZU5hbWUiOiJDT09SRElOQVRPUiIsImZ1bGxOYW1lIjoiQWRtaW5pc3RyYWRvciIsImlhdCI6MTc2NTA5NTc2MCwiZXhwIjoxNzY1MDk5MzYwfQ.3JrmsV4ff09VxwLRJKLUEzpt8OTnC9_w5hVRBqP9jPM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fullName\": \"Administrador Sistema\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/users/2",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImVtYWlsIjoiYWRtaW5AbXAuY29tIiwicm9sZU5hbWUiOiJDT09SRElOQVRPUiIsImZ1bGxOYW1lIjoiQWRtaW5pc3RyYWRvciIsImlhdCI6MTc2NTA5NTc2MCwiZXhwIjoxNzY1MDk5MzYwfQ.3JrmsV4ff09VxwLRJKLUEzpt8OTnC9_w5hVRBqP9jPM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/users/3",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"users",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUserById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImVtYWlsIjoiYWRtaW5AbXAuY29tIiwicm9sZU5hbWUiOiJDT09SRElOQVRPUiIsImZ1bGxOYW1lIjoiQWRtaW5pc3RyYWRvciIsImlhdCI6MTc2NTA5NTc2MCwiZXhwIjoxNzY1MDk5MzYwfQ.3JrmsV4ff09VxwLRJKLUEzpt8OTnC9_w5hVRBqP9jPM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/users/2",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getTotalUserCount",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImVtYWlsIjoiYWRtaW5AbXAuY29tIiwicm9sZU5hbWUiOiJDT09SRElOQVRPUiIsImZ1bGxOYW1lIjoiQWRtaW5pc3RyYWRvciIsImlhdCI6MTc2NTA5NTc2MCwiZXhwIjoxNzY1MDk5MzYwfQ.3JrmsV4ff09VxwLRJKLUEzpt8OTnC9_w5hVRBqP9jPM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/users/count/total",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"users",
+								"count",
+								"total"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listUsers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImVtYWlsIjoiYWRtaW5AbXAuY29tIiwicm9sZU5hbWUiOiJDT09SRElOQVRPUiIsImZ1bGxOYW1lIjoiQWRtaW5pc3RyYWRvciIsImlhdCI6MTc2NTA5NTc2MCwiZXhwIjoxNzY1MDk5MzYwfQ.3JrmsV4ff09VxwLRJKLUEzpt8OTnC9_w5hVRBqP9jPM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/users?offset=0&limit=10",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "role",
+			"item": [
+				{
+					"name": "createRole",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImVtYWlsIjoiYWRtaW5AbXAuY29tIiwicm9sZU5hbWUiOiJDT09SRElOQVRPUiIsImZ1bGxOYW1lIjoiQWRtaW5pc3RyYWRvciBTaXN0ZW1hIiwiaWF0IjoxNzY1MTAwOTIzLCJleHAiOjE3NjUxMDQ1MjN9.91gOECX47ReGRtTWNVNED6r1Mqp02O-W6j_W6HscnvQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"roleName\": \"ADMIN\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/roles",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateRole",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImVtYWlsIjoiYWRtaW5AbXAuY29tIiwicm9sZU5hbWUiOiJDT09SRElOQVRPUiIsImZ1bGxOYW1lIjoiQWRtaW5pc3RyYWRvciBTaXN0ZW1hIiwiaWF0IjoxNzY1MTAwOTIzLCJleHAiOjE3NjUxMDQ1MjN9.91gOECX47ReGRtTWNVNED6r1Mqp02O-W6j_W6HscnvQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"roleName\": \"ADMIN_ROLE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/roles/4",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"roles",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteRole",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImVtYWlsIjoiYWRtaW5AbXAuY29tIiwicm9sZU5hbWUiOiJDT09SRElOQVRPUiIsImZ1bGxOYW1lIjoiQWRtaW5pc3RyYWRvciBTaXN0ZW1hIiwiaWF0IjoxNzY1MTAwOTIzLCJleHAiOjE3NjUxMDQ1MjN9.91gOECX47ReGRtTWNVNED6r1Mqp02O-W6j_W6HscnvQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/roles/4",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"roles",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getRoleById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImVtYWlsIjoiYWRtaW5AbXAuY29tIiwicm9sZU5hbWUiOiJDT09SRElOQVRPUiIsImZ1bGxOYW1lIjoiQWRtaW5pc3RyYWRvciBTaXN0ZW1hIiwiaWF0IjoxNzY1MTAwOTIzLCJleHAiOjE3NjUxMDQ1MjN9.91gOECX47ReGRtTWNVNED6r1Mqp02O-W6j_W6HscnvQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/roles/4",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"roles",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getTotalRoleCount",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImVtYWlsIjoiYWRtaW5AbXAuY29tIiwicm9sZU5hbWUiOiJDT09SRElOQVRPUiIsImZ1bGxOYW1lIjoiQWRtaW5pc3RyYWRvciBTaXN0ZW1hIiwiaWF0IjoxNzY1MTAwOTIzLCJleHAiOjE3NjUxMDQ1MjN9.91gOECX47ReGRtTWNVNED6r1Mqp02O-W6j_W6HscnvQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/roles/count/total",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"roles",
+								"count",
+								"total"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listRoles",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImVtYWlsIjoiYWRtaW5AbXAuY29tIiwicm9sZU5hbWUiOiJDT09SRElOQVRPUiIsImZ1bGxOYW1lIjoiQWRtaW5pc3RyYWRvciBTaXN0ZW1hIiwiaWF0IjoxNzY1MTAwOTIzLCJleHAiOjE3NjUxMDQ1MjN9.91gOECX47ReGRtTWNVNED6r1Mqp02O-W6j_W6HscnvQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/roles?offset=0&limit=10",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"roles"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "case-file",
+			"item": [
+				{
+					"name": "createCaseFile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImVtYWlsIjoiYWRtaW5AbXAuY29tIiwicm9sZU5hbWUiOiJDT09SRElOQVRPUiIsImZ1bGxOYW1lIjoiQWRtaW5pc3RyYWRvciBTaXN0ZW1hIiwiaWF0IjoxNzY1MTI5ODcyLCJleHAiOjE3NjUxMzM0NzJ9.yDbJ7O8FVgpYQx6rsZGH7oAzvXvamNdbBNFctsZ7oGs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"caseCode\": \"CF-2025-0001\",\r\n  \"description\": \"This case file was created for testing the EvidenceTrack API.\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/case-files",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"case-files"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateCaseFile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImVtYWlsIjoiYWRtaW5AbXAuY29tIiwicm9sZU5hbWUiOiJDT09SRElOQVRPUiIsImZ1bGxOYW1lIjoiQWRtaW5pc3RyYWRvciBTaXN0ZW1hIiwiaWF0IjoxNzY1MTI5ODcyLCJleHAiOjE3NjUxMzM0NzJ9.yDbJ7O8FVgpYQx6rsZGH7oAzvXvamNdbBNFctsZ7oGs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"description\": \"This case file was created for testing update the EvidenceTrack API.\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/case-files/1",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"case-files",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCaseFile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImVtYWlsIjoiYWRtaW5AbXAuY29tIiwicm9sZU5hbWUiOiJDT09SRElOQVRPUiIsImZ1bGxOYW1lIjoiQWRtaW5pc3RyYWRvciBTaXN0ZW1hIiwiaWF0IjoxNzY1MTI5ODcyLCJleHAiOjE3NjUxMzM0NzJ9.yDbJ7O8FVgpYQx6rsZGH7oAzvXvamNdbBNFctsZ7oGs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"caseCode\": \"CF-2025-0001\",\r\n  \"description\": \"This case file was created for testing the EvidenceTrack API.\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{API_URL}}/case-files/2",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"case-files",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCaseFileById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImVtYWlsIjoiYWRtaW5AbXAuY29tIiwicm9sZU5hbWUiOiJDT09SRElOQVRPUiIsImZ1bGxOYW1lIjoiQWRtaW5pc3RyYWRvciBTaXN0ZW1hIiwiaWF0IjoxNzY1MTI5ODcyLCJleHAiOjE3NjUxMzM0NzJ9.yDbJ7O8FVgpYQx6rsZGH7oAzvXvamNdbBNFctsZ7oGs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"caseCode\": \"CF-2025-0001\",\r\n  \"description\": \"This case file was created for testing the EvidenceTrack API.\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{API_URL}}/case-files/1",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"case-files",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listCaseFiles",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImVtYWlsIjoiYWRtaW5AbXAuY29tIiwicm9sZU5hbWUiOiJDT09SRElOQVRPUiIsImZ1bGxOYW1lIjoiQWRtaW5pc3RyYWRvciBTaXN0ZW1hIiwiaWF0IjoxNzY1MTI5ODcyLCJleHAiOjE3NjUxMzM0NzJ9.yDbJ7O8FVgpYQx6rsZGH7oAzvXvamNdbBNFctsZ7oGs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"caseCode\": \"CF-2025-0001\",\r\n  \"description\": \"This case file was created for testing the EvidenceTrack API.\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{API_URL}}/case-files?offset=0&limit=10",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"case-files"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getTotalCaseFileCount",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImVtYWlsIjoiYWRtaW5AbXAuY29tIiwicm9sZU5hbWUiOiJDT09SRElOQVRPUiIsImZ1bGxOYW1lIjoiQWRtaW5pc3RyYWRvciBTaXN0ZW1hIiwiaWF0IjoxNzY1MTI5ODcyLCJleHAiOjE3NjUxMzM0NzJ9.yDbJ7O8FVgpYQx6rsZGH7oAzvXvamNdbBNFctsZ7oGs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"caseCode\": \"CF-2025-0001\",\r\n  \"description\": \"This case file was created for testing the EvidenceTrack API.\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{API_URL}}/case-files/count/total",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"case-files",
+								"count",
+								"total"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "evidence-item",
+			"item": [
+				{
+					"name": "createEvidenceItem",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImVtYWlsIjoiYWRtaW5AbXAuY29tIiwicm9sZU5hbWUiOiJDT09SRElOQVRPUiIsImZ1bGxOYW1lIjoiQWRtaW5pc3RyYWRvciBTaXN0ZW1hIiwiaWF0IjoxNzY1MTM5MTA3LCJleHAiOjE3NjUxNDI3MDd9.qL3Fb_RZWeltO5ZcZH2MvK2DstNkgIu1y4RQRdbYJqg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"caseFileId\": 1,\r\n  \"description\": \"Black backpack found near the crime scene containing personal belongings.\",\r\n  \"color\": \"Black\",\r\n  \"size\": \"Medium\",\r\n  \"weight\": \"1.2 kg\",\r\n  \"locationFound\": \"Near the main entrance of the warehouse\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/evidence-items",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"evidence-items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateEvidenceItem",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImVtYWlsIjoiYWRtaW5AbXAuY29tIiwicm9sZU5hbWUiOiJDT09SRElOQVRPUiIsImZ1bGxOYW1lIjoiQWRtaW5pc3RyYWRvciBTaXN0ZW1hIiwiaWF0IjoxNzY1MTM5MTA3LCJleHAiOjE3NjUxNDI3MDd9.qL3Fb_RZWeltO5ZcZH2MvK2DstNkgIu1y4RQRdbYJqg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"color\": \"Grey\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/evidence-items/1",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"evidence-items",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteEvidenceItem",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImVtYWlsIjoiYWRtaW5AbXAuY29tIiwicm9sZU5hbWUiOiJDT09SRElOQVRPUiIsImZ1bGxOYW1lIjoiQWRtaW5pc3RyYWRvciBTaXN0ZW1hIiwiaWF0IjoxNzY1MTM5MTA3LCJleHAiOjE3NjUxNDI3MDd9.qL3Fb_RZWeltO5ZcZH2MvK2DstNkgIu1y4RQRdbYJqg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{API_URL}}/evidence-items/1",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"evidence-items",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getEvidenceItemById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImVtYWlsIjoiYWRtaW5AbXAuY29tIiwicm9sZU5hbWUiOiJDT09SRElOQVRPUiIsImZ1bGxOYW1lIjoiQWRtaW5pc3RyYWRvciBTaXN0ZW1hIiwiaWF0IjoxNzY1MTM5MTA3LCJleHAiOjE3NjUxNDI3MDd9.qL3Fb_RZWeltO5ZcZH2MvK2DstNkgIu1y4RQRdbYJqg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/evidence-items/1",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"evidence-items",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listEvidenceItems",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImVtYWlsIjoiYWRtaW5AbXAuY29tIiwicm9sZU5hbWUiOiJDT09SRElOQVRPUiIsImZ1bGxOYW1lIjoiQWRtaW5pc3RyYWRvciBTaXN0ZW1hIiwiaWF0IjoxNzY1MTM5MTA3LCJleHAiOjE3NjUxNDI3MDd9.qL3Fb_RZWeltO5ZcZH2MvK2DstNkgIu1y4RQRdbYJqg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/evidence-items?offset=0&limit=10&caseFileId=1",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"evidence-items"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "caseFileId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getTotalEvidenceItemCountByCaseFile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImVtYWlsIjoiYWRtaW5AbXAuY29tIiwicm9sZU5hbWUiOiJDT09SRElOQVRPUiIsImZ1bGxOYW1lIjoiQWRtaW5pc3RyYWRvciBTaXN0ZW1hIiwiaWF0IjoxNzY1MTM5MTA3LCJleHAiOjE3NjUxNDI3MDd9.qL3Fb_RZWeltO5ZcZH2MvK2DstNkgIu1y4RQRdbYJqg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/evidence-items/count/total?caseFileId=1",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"evidence-items",
+								"count",
+								"total"
+							],
+							"query": [
+								{
+									"key": "caseFileId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "reports",
+			"item": [
+				{
+					"name": "getDashboardOverview",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImVtYWlsIjoiYWRtaW5AbXAuY29tIiwicm9sZU5hbWUiOiJDT09SRElOQVRPUiIsImZ1bGxOYW1lIjoiQWRtaW5pc3RyYWRvciBTaXN0ZW1hIiwiaWF0IjoxNzY1MTYwNTEwLCJleHAiOjE3NjUxNjQxMTB9.MGus9bPeGoiRTPUOVBWsxYxOqSs4jxyNO8NNgeAkV-I",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/reports/overview",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"reports",
+								"overview"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCaseFilesStatusByDay",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImVtYWlsIjoiYWRtaW5AbXAuY29tIiwicm9sZU5hbWUiOiJDT09SRElOQVRPUiIsImZ1bGxOYW1lIjoiQWRtaW5pc3RyYWRvciBTaXN0ZW1hIiwiaWF0IjoxNzY1MTYwNTEwLCJleHAiOjE3NjUxNjQxMTB9.MGus9bPeGoiRTPUOVBWsxYxOqSs4jxyNO8NNgeAkV-I",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/reports/case-files/status-by-day?daysBack=90",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"reports",
+								"case-files",
+								"status-by-day"
+							],
+							"query": [
+								{
+									"key": "daysBack",
+									"value": "90"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getTechnicianActivity",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "getEvidenceDensity",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/reports/reports/evidence/density?top=5&status=UNDER_REVIEW",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"reports",
+								"reports",
+								"evidence",
+								"density"
+							],
+							"query": [
+								{
+									"key": "top",
+									"value": "5"
+								},
+								{
+									"key": "status",
+									"value": "UNDER_REVIEW"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
